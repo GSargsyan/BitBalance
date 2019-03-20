@@ -1,0 +1,8 @@
+# To kill uwsgi app
+sudo pkill -f uwsgi -9
+
+# To start the uwsgi
+sudo uwsgi --ini /var/www/BitBalance/configs/uwsgi.ini --daemonize /var/www/BitBalance/bitbalance/var/log/uwsgi.log
+
+# To execute sql script
+psql -U bitbalance -d bitbalance -a -f db_init.sql

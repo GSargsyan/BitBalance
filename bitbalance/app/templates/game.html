@@ -1,0 +1,41 @@
+<html>
+	<head>
+	<meta charset="UTF-8">
+		<link rel=stylesheet type=text/css
+			href="{{ url_for('static', filename='style.css') }}">
+
+		<script type="text/javascript"
+			src="{{ url_for('static', filename='utils.js') }}"></script>
+	</head>
+	<body>
+		<h1>Game page</h1>
+		{% if room_id %}
+		<p>You joined room: {{ room_id }}</p>
+		{% endif %}
+		<br>
+		<h3>Balance: {{ balance }}<h3>
+		<br>
+		<div>
+			<span>Till starting: </span>
+			<span id="till-round-start">0</span>
+		</div>
+		
+		<script type="text/javascript"
+			src="{{ url_for('static', filename='game.js') }}"></script>
+
+		<br>
+		<div>
+			<p>Board</p>
+			{% for n in range(37) %}
+			<input id="str-{{ n }}" type="button" value="{{ n }}">
+			{% endfor %}
+			<br>
+			<input id="red" type="button" value="red">
+			<input id="black" type="button" value="black">
+		</div>
+		<br><br>
+		<div>
+			{% include 'chat.html' %}
+		</div>
+	</body>
+</html>
